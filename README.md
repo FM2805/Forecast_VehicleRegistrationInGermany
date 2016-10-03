@@ -4,7 +4,7 @@
 With the code supplied in this repository, we are able to forecast monthly vehicle registrations for new cars in Germany.
 There are 3 R files associated with this.
 
-1) TS_Registrations_Download.R - lets you download the relevant data from the website of the respecive government body
+1) TS_Registrations_Download.R - Download the relevant data from the website of the responsible government body
 
 2) TS_Registrations_PrepareData.R - Adjust the data so that we can work with it (the excel files are pretty messy)
 
