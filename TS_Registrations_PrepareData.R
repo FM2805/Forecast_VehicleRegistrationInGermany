@@ -26,7 +26,7 @@ Drop_vec_1 <- c(Drop_vec_1,Drop_vec_1-1)
 # Remove footers - Search the strings for the specific patterns
 Drop_vec_2<-grep('Ausgewiesen werden',DF_adjusted$Model)
 Drop_vec_3<-grep('Modellreihen',DF_adjusted$Model)
-# Drop 'VANS' category - they are separately reported as 'MINI-VANS' and 'Großraum-VANS'
+# Drop 'VANS' category - they are separately reported as 'MINI-VANS' and 'GroÃŸraum-VANS'
 Drop_vec_4 <- which(trimws(DF_adjusted$Model)=="VANS" | trimws(DF_adjusted$Model)=="VANS INSGESAMT")
 # Create final vector
 Drop_vec <- c(Drop_vec_1,Drop_vec_2,Drop_vec_3,Drop_vec_4)
@@ -72,7 +72,7 @@ DF_adjusted$Quantity <-  as.numeric(DF_adjusted$Quantity)
 ########################
 # Now we are nearly done. We create 2 DF out of 'DF_adjusted'. One where we aggregate over the class (these
 # values are also available in the rows with the Model "Zusammen" (Combined)) - and one where we keep the
-# data at the Model level). These will be named DF_Class and DF_Model.
+# data at the model level). These will be named DF_Class and DF_Model.
 ########################
 
 
@@ -96,7 +96,7 @@ write.csv(DF_Model, file="C:/Users/FloM/Desktop/R_BASE/DF_Model.csv")
 
 ########################
 # Final note: When taking a closer look at the data, it becomes apparent that SUVs exist as a seperate class only
-# from 01/2013 onwards. Before, they were part of the class 'GELAENDEWAGEN'. 
+# from 01/2013 onwards. Before, they were part of the class 'OFFROAD_VEHICLE'. 
 # This causes  a structural break in the TS of the latter.
 # In the following, we will use the DF_CLASS DF for our analysis.
 ########################
