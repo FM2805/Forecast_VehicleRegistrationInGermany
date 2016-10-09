@@ -62,9 +62,9 @@ CompareEstimate <- function(Data, Names) {
     
     # DF definieren
     TS_Cars <- ts(Data,start=c(2013,1),end=c(Year_Ce,Month_Ce),frequency=12) 
-    # Für FC verwenden
+    # FÃ¼r FC verwenden
     TS_Cars_fc <-window(TS_Cars,start=c(2013,1),end=c(Year_E,Month_E),frequency=12)
-    # Für Abgleich verwenden
+    # FÃ¼r Abgleich verwenden
     TS_Cars_comp <-window(TS_Cars,start=c(Year_Cs,Month_Cs),end=c(Year_Ce,Month_Ce),frequency=12)
     
   } else {
@@ -72,9 +72,9 @@ CompareEstimate <- function(Data, Names) {
     
     # DF definieren
     TS_Cars <- ts(Data,start=c(Year_S,Month_S),end=c(Year_Ce,Month_Ce),frequency=12) 
-    # Für FC verwenden
+    # FÃ¼r FC verwenden
     TS_Cars_fc <-window(TS_Cars,start=c(Year_S,Month_S),end=c(Year_E,Month_E),frequency=12)
-    # Für Abgleich verwenden
+    # FÃ¼r Abgleich verwenden
     TS_Cars_comp <-window(TS_Cars,start=c(Year_Cs,Month_Cs),end=c(Year_Ce,Month_Ce),frequency=12)
   }
   
@@ -215,7 +215,7 @@ DF_Results <-
 
 
 ########################
-# Now we have created the forecast and can inspect them with the help of the plotted output. While we don't see a clear cut pattern
+# Now we have created the forecast and can inspect them with the help of the plotted output. While we don't see a clear pattern
 # in some instances (Luxury vehicles, for example), others - notably RVs and Sports Cars' have a clear cut seasonal pattern.
 ########################
 
