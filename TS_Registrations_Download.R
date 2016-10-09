@@ -2,8 +2,10 @@
 # In this script, we download monthly new registrations for certain vehicle segments in Germany. The data
 # is made publicly available by the responsible German government body located in Flensburg.
 # This file downloads the relevant excel templates with the data into a specified folder and loads them back into R to
-# create a dataframe. To be precise, we will download data from 01/2011 to 06/2016 (there is one excel for each month)
+# create a dataframe. To be precise, we will download data from 01/2011 to 06/2016 (there is one Excel for each month).
 #
+# Later, we will use the data up to 12/2015 to find a suitable model (ARIMA or exponential smoothin), and then test the 
+# forecast accuracy with the first six months of 2016. This will give us a clue which models we should pick.
 #
 # Note - Make sure that you have an adequate java Version installed (=64 bit Java for 64 bit R and 32 bit Java for 32 bit R), 
 # otherwise the script wont work.
@@ -27,7 +29,7 @@ Folder <- "C:/Users/FloM/Desktop/R_Base"
 
 # Years to evaluate - 2011 to 2015
 Years_L <-rep(seq(YearStart,YearEnd-1),12)
-# Add first last six months of 2016
+# Add first six months of 2016
 Years_L <- c(Years_L,rep(YearEnd,MonthEnd))
 Years_L <-as.character(sort(Years_L))
 
@@ -89,7 +91,7 @@ DF_Unedited$Model<- ifelse(trimws(DF_Unedited$Model) == "MINI-VANS", "MINI_VANS"
 DF_Unedited$Model<- ifelse(trimws(DF_Unedited$Model) == "GROSSRAUM-VANS", "LARGE_VANS",DF_Unedited$Model)
 DF_Unedited$Model<- ifelse(trimws(DF_Unedited$Model) == "WOHNMOBILE", "RVs",DF_Unedited$Model)
 # ifelse has some issues when special characters are in play, therefore we remove them first in this case
-DF_Unedited$Model<- ifelse(trimws(gsub('Ã"','AE',DF_Unedited$Model)) == "GELAENDEWAGEN", "OFFROAD_VEHICLE",DF_Unedited$Model)
+DF_Unedited$Model<- ifelse(trimws(gsub('Ãƒ"','AE',DF_Unedited$Model)) == "GELAENDEWAGEN", "OFFROAD_VEHICLE",DF_Unedited$Model)
 # Translate "SONSTIGE": "Other Models" that are included in a class but not expicitly counted
 DF_Unedited$Model<- ifelse(trimws(DF_Unedited$Model) == "SONSTIGE", "OTHER_MODEL",DF_Unedited$Model)
 
