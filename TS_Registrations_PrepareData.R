@@ -14,7 +14,7 @@ DF_Unedited$X <- NULL
 # Now we have created the Dataframe - but we need to clean it up and eliminate unnecessary / misleading entries
 # Get the rows indices where Model is NA
 Drop_vec <-which(is.na(DF_Unedited$Model))
-#Drow the rows
+#Remove these the rows
 DF_adjusted <- DF_Unedited[-Drop_vec,]
 #Reset the rownames
 rownames(DF_adjusted) <- NULL
