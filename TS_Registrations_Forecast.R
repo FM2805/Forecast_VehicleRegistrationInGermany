@@ -10,7 +10,7 @@ library(dplyr)
 library(RCurl)
 
 # Load the data from github
-DF_Class <- getURL("https://raw.githubusercontent.com/FM2805/Forecast_VehicleRegistration/Dev_SplitFiles/DF_Class.csv")
+DF_Class <- getURL("https://raw.githubusercontent.com/FM2805/Forecast_VehicleRegistrationInGermany/master/DF_Class.csv")
 DF_Class <- read.csv(text = DF_Class)
 DF_Class$X <- NULL
 
